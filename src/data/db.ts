@@ -13,7 +13,7 @@ export const menuItems : MenuItem [] = [
     },
     {
       "id": 3,
-      "name": "Rebanada de Pay de Limón",
+      "name": "Rebanada de Pie de Limón",
       "price": 30
     },
     {
@@ -48,7 +48,7 @@ export const menuItems : MenuItem [] = [
     },
     {
       "id": 10,
-      "name": "Rebanada de Pay de Queso",
+      "name": "Rebanada de Pie de Queso",
       "price": 30
     },
     {
