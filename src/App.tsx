@@ -1,13 +1,23 @@
 import MenuItem from "./components/MenuItem"
 import OrderContents from "./components/OrderContents"
 import OrderTotals from "./components/OrderTotals"
+import Modal from "./components/Modal"
 import TipPercentageForm from "./components/TipPercentageForm"
 import { menuItems } from "./data/db"
 import useOrder from "./hooks/useOrder"
+import { useState } from "react"
 
 function App() {
   
   const  { order, addItem , removeItem, tip, setTip, placeOrder} = useOrder()
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handlePlaceOrder = () => {
+    placeOrder();
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => setIsModalOpen(false);
   
   return (
     <>
@@ -45,7 +55,7 @@ function App() {
                 <OrderTotals
                 order={order}
                 tip={tip}
-                placeOrder={placeOrder}
+                placeOrder={handlePlaceOrder}
                 />
             </>
           ) : (
@@ -56,6 +66,18 @@ function App() {
         </div>
 
       </main>
+
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+        <div className="text-center">
+          <img
+            src="/img/pikachu.png"
+            alt="Thank you"
+            className="mx-auto mb-4"
+          />
+          <h2 className="text-2xl font-bold">¡Gracias por su compra!</h2>
+          <p className="mt-2">Su orden ha sido guardada con éxito.</p>
+        </div>
+      </Modal>
     </>
   )
 }

@@ -31,6 +31,7 @@ export default function TipPercentageForm({setTip, tip}: TipPercentageFormProps)
             <div key={tipOption.id} className="flex gap-2">
                 <label htmlFor={tipOption.id}>{tipOption.label}</label>
                 <input
+                    className="hover:cursor-pointer"
                     id={tipOption.id}
                     type="radio"
                     name="tip"
